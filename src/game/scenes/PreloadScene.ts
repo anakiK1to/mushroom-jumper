@@ -12,96 +12,76 @@ export class PreloadScene extends Scene {
         }).setOrigin(0.5);
 
         this.createPixelArtTexture(
-            'player',
+            'mushroom',
             {
-                O: 0x1c1b1a,
                 R: 0xd62828,
-                r: 0xa31616,
+                r: 0xb71c1c,
                 W: 0xf5f5f5,
-                S: 0xe8cda5,
-                s: 0xcfa77f,
-                B: 0x6d4c41,
-                b: 0x4e342e
+                Y: 0xf2d7ae,
+                y: 0xd6b184,
+                B: 0x1c1b1a
             },
             [
-                '......................',
-                '........OOOOOO........',
-                '.......ORRRRRRO.......',
-                '......ORWWRWWRO.......',
-                '......ORrRRRrRO.......',
-                '......ORWWRWWRO.......',
-                '.......ORRRRRO........',
-                '......ORRRRRRRO.......',
-                '.....ORRRRRRRRRO......',
-                '....ORRRRRRRRRRRO.....',
-                '...OOOSSSSSSSSOO......',
-                '...OOOSsSSSsSSOO......',
-                '...OOOSSSSSSSSOO......',
-                '....OOSWWWWWSOO.......',
-                '....OOSWWWWWSOO.......',
-                '.....OOSSSSOO.........',
-                '......OOSSOO..........',
-                '......OOBBBOO.........',
-                '.....OOBBBBOO.........',
-                '.....OOBBBBOO.........',
-                '.....OOB..BOO.........',
-                '.....OOb..bOO.........',
-                '.....OOb..bOO.........',
-                '......OO....OO........'
+                '................',
+                '..RRRRRRRRRRRR..',
+                '.RRRWWRRRRWWRRR.',
+                '.RRWWWWRRWWWWRR.',
+                '.RRRWRRRRRRWRRR.',
+                '.RRRRRRRRRRRRRR.',
+                '.RRRRWWWWWWRRRR.',
+                '.RRRWRRRRRRWRRR.',
+                '.RRRRRRRRRRRRRR.',
+                '..RRRRRRRRRRRR..',
+                '.YYYYYYYYYYYYYY.',
+                '..YYyYYYYYYyYY..',
+                '.YYyBBYYYYBByYY.',
+                '.YYyyyyyyyyyyYY.',
+                '..YYyyyyyyyyYY..',
+                '...YYYYYYYYYY...',
+                '................'
             ],
-            2
+            4
         );
 
         this.createPixelArtTexture(
-            'enemy',
+            'plumber',
             {
-                O: 0x1c1b1a,
-                R: 0xc62828,
-                r: 0x8b1b1b,
+                R: 0xf44336,
+                r: 0xc62828,
                 W: 0xf5f5f5,
-                H: 0xf2d7ae,
-                h: 0xd6b184,
-                B: 0x2459e0,
-                b: 0x1b3fa3,
-                Y: 0xfbc02d,
-                y: 0xd69a00,
-                N: 0x5d4037,
-                n: 0x3e2723
+                F: 0xf2d7ae,
+                f: 0xd6b184,
+                B: 0x1e88e5,
+                b: 0x1565c0,
+                M: 0x5d4037,
+                Y: 0xfbc02d
             },
             [
-                '......................',
-                '........OOOOOO........',
-                '.......ORRRRRRO.......',
-                '......ORrRRRrRO.......',
-                '.....ORRRRRRRRRO......',
-                '.....ORWWWWWWRO.......',
-                '....OORRRRRRRROO......',
-                '....OORHHHWHHROO......',
-                '...OORHHHNHHHROO......',
-                '...OORHHHHHHHROO......',
-                '...OORHHNHHHROO.......',
-                '....ORBBBBBBRO........',
-                '...ORBBBBBBBBRO.......',
-                '...ORBBBBBBBBRO.......',
-                '...ORBYBBBBYBRO.......',
-                '...ORBBBBBBBBRO.......',
-                '....ORBBBBBBRO........',
-                '.....ORBB..BRO........',
-                '.....ORBB..BRO........',
-                '......ONNNNNNO........',
-                '......ONN..NNO........',
-                '.......On..nO.........',
-                '.......On..nO.........',
-                '........O....O........'
+                '................',
+                '..rrrrRRRRrrrr..',
+                '.rRRRRRRRRRRRr.',
+                '.rRRWWRRRRWWRRR.',
+                '.rRRRRRRRRRRRR.',
+                '..RRRRRRRRRRRR..',
+                '..RRWrrYYrrWRR..',
+                '..FFFFFFFFFFFF..',
+                '.FFFfFFFFFFfFFF.',
+                '.FFFWBBMMBBWFFF.',
+                '.FFFWBBBBBBWFFF.',
+                '.FFBBBBBBBBBBFF.',
+                '.FfBBBBYYBBBBfF.',
+                '.FfBBbBBBBbBBfF.',
+                '..FBBBBBBBBBBF..',
+                '..FBBBbBBBbBBF..'
             ],
-            2
+            4
         );
 
         this.createBlockyStripTexture(
             'platform',
             96,
             24,
-            [0x4caf50, 0x43a047],
+            [0xc67c48, 0xb56b3c],
             [0x8d6e63, 0x6d4c41, 0x5d4037]
         );
 
@@ -109,15 +89,37 @@ export class PreloadScene extends Scene {
             'ground',
             400,
             48,
-            [0x4caf50, 0x2e7d32],
+            [0x6ab04c, 0x60a243],
             [0x8d6e63, 0x6d4c41, 0x5d4037, 0x4e342e]
+        );
+
+        this.createPixelArtTexture(
+            'question-block',
+            {
+                O: 0xf9a825,
+                o: 0xf57f17,
+                H: 0xffeb3b,
+                h: 0xfbc02d,
+                S: 0x1c1b1a
+            },
+            [
+                'OOOOOOOOOOOOOOOO',
+                'OHHHHHHHHHHHHHOO',
+                'OHShHShHShHShHO',
+                'OHHHHHHHHHHHHHOO',
+                'OHoHoHoHoHoHoHO',
+                'OHHHHHHHHHHHHHOO',
+                'OHoHoHoHoHoHoHO',
+                'OOOOOOOOOOOOOOOO'
+            ],
+            4
         );
 
         this.createPixelArtTexture(
             'background-block',
             {
-                A: 0x7cc5e8,
-                B: 0x6daed6
+                A: 0x8fd7ff,
+                B: 0x73c2f2
             },
             [
                 'AABB',

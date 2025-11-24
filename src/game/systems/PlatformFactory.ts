@@ -30,6 +30,19 @@ export class PlatformFactory {
             platform.refreshBody();
         });
 
+        const questionBlocks = [
+            { x: 620, y: groundY - 280 },
+            { x: 1420, y: groundY - 260 },
+            { x: 2100, y: groundY - 240 },
+            { x: 2750, y: groundY - 260 }
+        ];
+
+        questionBlocks.forEach((config) => {
+            const block = platforms.create(config.x, config.y, 'question-block') as Phaser.Physics.Arcade.Sprite;
+            block.setOrigin(0.5, 0.5);
+            block.refreshBody();
+        });
+
         return platforms;
     }
 }
