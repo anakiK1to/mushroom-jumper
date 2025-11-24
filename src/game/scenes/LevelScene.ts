@@ -15,6 +15,8 @@ export class LevelScene extends Phaser.Scene {
     private platforms!: Phaser.Physics.Arcade.StaticGroup;
     private scoreText!: Phaser.GameObjects.Text;
     private livesText!: Phaser.GameObjects.Text;
+    private questionText!: Phaser.GameObjects.Text;
+    private hintText!: Phaser.GameObjects.Text;
     private score = 0;
     private lives = 3;
     private readonly worldWidth = 3200;
@@ -50,6 +52,11 @@ export class LevelScene extends Phaser.Scene {
         this.cameras.main.setLerp(0.12, 0.1);
 
         this.createUI();
+        this.createQuestionBanner();
+
+        this.input.keyboard?.on('keydown-R', () => {
+            this.scene.restart();
+        });
     }
 
     update(): void {
@@ -132,13 +139,41 @@ export class LevelScene extends Phaser.Scene {
             fontStyle: 'bold'
         };
 
-        this.scoreText = this.add.text(16, 16, '', style).setScrollFactor(0);
-        this.livesText = this.add.text(16, 44, '', style).setScrollFactor(0);
+        this.scoreText = this.add.text(16, 94, '', style).setScrollFactor(0);
+        this.livesText = this.add.text(16, 122, '', style).setScrollFactor(0);
         this.updateUI();
     }
 
     private updateUI(): void {
         this.scoreText.setText(`Score: ${this.score}`);
         this.livesText.setText(`Lives: ${this.lives}`);
+    }
+
+    private createQuestionBanner(): void {
+        const bannerStyle: Phaser.Types.GameObjects.Text.TextStyle = {
+            fontSize: '18px',
+            color: '#000000',
+            backgroundColor: '#ffeb3b',
+            padding: { x: 10, y: 6 },
+            align: 'center',
+            wordWrap: { width: 520 }
+        };
+
+        const hintStyle: Phaser.Types.GameObjects.Text.TextStyle = {
+            fontSize: '15px',
+            color: '#ffffff',
+            backgroundColor: '#1c1b1a',
+            padding: { x: 8, y: 4 }
+        };
+
+        this.questionText = this.add
+            .text(this.scale.width / 2, 16, 'Почему нет игры, где ты грибок и прыгаешь на супермарио? Вот она!', bannerStyle)
+            .setOrigin(0.5, 0)
+            .setScrollFactor(0);
+
+        this.hintText = this.add
+            .text(this.scale.width / 2, 54, 'Стрелки — движение и прыжок. Прыгай на водопроводчика, R — рестарт.', hintStyle)
+            .setOrigin(0.5, 0)
+            .setScrollFactor(0);
     }
 }

@@ -8,7 +8,7 @@ export class Enemy extends Phaser.Physics.Arcade.Sprite {
     private patrolMaxX: number;
 
     constructor(scene: Phaser.Scene, x: number, y: number, patrolWidth = 220) {
-        super(scene, x, y, 'enemy');
+        super(scene, x, y, 'plumber');
 
         scene.add.existing(this);
         scene.physics.add.existing(this);
